@@ -1,0 +1,77 @@
+org: richik
+app: webhooks-qb
+service: zapier-qb
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  versionFunctions: false
+  stage: v1
+  region: ap-south-1
+  apiName: ${self:service}
+  memorySize: 256
+  logRetentionInDays: 14
+
+functions:
+  daoCreated:
+    handler: events/OnDaoCreated.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+  grantCreated:
+    handler: events/OnGrantCreated.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+  grantAppliedTo:
+    handler: events/OnGrantAppliedTo.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+  applicationUpdate:
+    handler: events/OnApplicationUpdate.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+  reviewerInvitedToDAO:
+    handler: events/OnReviewerInvitedToDAO.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+  reviewerAddedToGrantApplication:
+    handler: events/OnReviewerAddedToGrantApplication.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+  reviewerSubmittedReview:
+    handler: events/OnReviewerSubmittedReview.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+  fundSent:
+    handler: events/OnFundSent.run
+    timeout: 60
+    reservedConcurrency: 1
+    events:
+      - schedule: rate(1 minute)
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+  - serverless-dotenv-plugin
