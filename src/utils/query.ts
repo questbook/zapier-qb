@@ -7,6 +7,7 @@ import {
 import fetch from 'cross-fetch'
 import { CHAIN_INFO } from '../configs/chainInfo'
 import { SupportedChainId } from '../configs/chains'
+import { OnChainEvent } from '../configs/events'
 
 const Pino = require('pino')
 
@@ -17,8 +18,9 @@ async function executeQuery(
 	from: number,
 	to: number,
 	query: DocumentNode,
+	type: OnChainEvent
 ) {
-	logger.info({ chainId, from, to }, 'Executing query')
+	// logger.info({ chainId, from, to }, `${type}: Executing query`)
 	const link = new HttpLink({
 		uri: CHAIN_INFO[chainId].subgraphClientUrl,
 		fetch,
@@ -37,9 +39,9 @@ async function executeQuery(
 		},
 	})
 	const { data } = response
-	logger.info({
-		chainId, from, to, data,
-	}, 'Executed query')
+	// logger.info({
+	// 	chainId, from, to, data,
+	// }, `${type}: Executed query`)
 
 	return data
 }

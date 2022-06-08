@@ -58,8 +58,8 @@ export const CHAIN_INFO: ChainInfoMap = {
             'https://the-graph.questbook.app/subgraphs/name/qb-subgraph-rinkeby',
 		rpcUrls: ['https://rinkeby.infura.io/v3/'],
 	},
-	[SupportedChainId.HARMONY_TESTNET_S0]: {
-		id: SupportedChainId.HARMONY_TESTNET_S0,
+	[SupportedChainId.HARMONY_TESTNET]: {
+		id: SupportedChainId.HARMONY_TESTNET,
 		name: 'Harmony Testnet S0',
 		nativeCurrency: {
 			name: 'Harmony Testnet ONE',
@@ -88,11 +88,11 @@ export const CHAIN_INFO: ChainInfoMap = {
 			},
 		},
 		subgraphClientUrl:
-            'https://the-graph.questbook.app/subgraphs/name/qb-subgraph-harmonytest',
+            'https://the-graph.questbook.app/subgraphs/name/qb-subgraph-harmony-testnet',
 		rpcUrls: ['https://api.s0.b.hmny.io'],
 	},
-	[SupportedChainId.POLYGON_TESTNET]: {
-		id: SupportedChainId.POLYGON_TESTNET,
+	[SupportedChainId.POLYGON_MUMBAI]: {
+		id: SupportedChainId.POLYGON_MUMBAI,
 		name: 'Polygon Testnet',
 		nativeCurrency: {
 			name: 'Matic Token',

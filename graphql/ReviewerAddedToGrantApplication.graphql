@@ -1,7 +1,12 @@
 query ReviewerAddedToGrantApplication($lowerLimit: Int!, $upperLimit: Int!) {
   grantApplications(
     subgraphError: allow
-    where: { updatedAtS_gt: $lowerLimit, updatedAtS_lte: $upperLimit, version_gt: 1, reviewers_not: [] }
+    where: {
+      updatedAtS_gt: $lowerLimit
+      updatedAtS_lte: $upperLimit
+      version_gt: 1
+      reviewers_not: []
+    }
   ) {
     id
     state
@@ -24,6 +29,7 @@ query ReviewerAddedToGrantApplication($lowerLimit: Int!, $upperLimit: Int!) {
         }
       }
       workspace {
+        id
         chain: supportedNetworks
       }
     }

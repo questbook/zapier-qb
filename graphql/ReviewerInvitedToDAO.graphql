@@ -10,9 +10,10 @@ query ReviewerInvitedToDAO($lowerLimit: Int!, $upperLimit: Int!) {
   ) {
     email
     workspace {
+      id
       title
       chain: supportedNetworks
     }
-    address: actorId
+    actorId
   }
 }

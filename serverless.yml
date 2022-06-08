@@ -15,19 +15,19 @@ provider:
   logRetentionInDays: 14
 
 functions:
-  daoCreated:
-    handler: events/OnDaoCreated.run
-    timeout: 60
-    reservedConcurrency: 1
-    events:
-      - schedule: rate(1 minute)
+  # daoCreated:
+  #   handler: events/OnDaoCreated.run
+  #   timeout: 60
+  #   reservedConcurrency: 1
+  #   events:
+  #     - schedule: rate(1 minute)
 
-  grantCreated:
-    handler: events/OnGrantCreated.run
-    timeout: 60
-    reservedConcurrency: 1
-    events:
-      - schedule: rate(1 minute)
+  # grantCreated:
+  #   handler: events/OnGrantCreated.run
+  #   timeout: 60
+  #   reservedConcurrency: 1
+  #   events:
+  #     - schedule: rate(1 minute)
 
   grantAppliedTo:
     handler: events/OnGrantAppliedTo.run
@@ -36,40 +36,40 @@ functions:
     events:
       - schedule: rate(1 minute)
 
-  applicationUpdate:
-    handler: events/OnApplicationUpdate.run
-    timeout: 60
-    reservedConcurrency: 1
-    events:
-      - schedule: rate(1 minute)
+  # applicationUpdate:
+  #   handler: events/OnApplicationUpdate.run
+  #   timeout: 60
+  #   reservedConcurrency: 1
+  #   events:
+  #     - schedule: rate(1 minute)
 
-  reviewerInvitedToDAO:
-    handler: events/OnReviewerInvitedToDAO.run
-    timeout: 60
-    reservedConcurrency: 1
-    events:
-      - schedule: rate(1 minute)
+  # reviewerInvitedToDAO:
+  #   handler: events/OnReviewerInvitedToDAO.run
+  #   timeout: 60
+  #   reservedConcurrency: 1
+  #   events:
+  #     - schedule: rate(1 minute)
 
-  reviewerAddedToGrantApplication:
-    handler: events/OnReviewerAddedToGrantApplication.run
-    timeout: 60
-    reservedConcurrency: 1
-    events:
-      - schedule: rate(1 minute)
+  # reviewerAddedToGrantApplication:
+  #   handler: events/OnReviewerAddedToGrantApplication.run
+  #   timeout: 60
+  #   reservedConcurrency: 1
+  #   events:
+  #     - schedule: rate(1 minute)
 
-  reviewerSubmittedReview:
-    handler: events/OnReviewerSubmittedReview.run
-    timeout: 60
-    reservedConcurrency: 1
-    events:
-      - schedule: rate(1 minute)
+  # reviewerSubmittedReview:
+  #   handler: events/OnReviewerSubmittedReview.run
+  #   timeout: 60
+  #   reservedConcurrency: 1
+  #   events:
+  #     - schedule: rate(10 minutes)
 
-  fundSent:
-    handler: events/OnFundSent.run
-    timeout: 60
-    reservedConcurrency: 1
-    events:
-      - schedule: rate(1 minute)
+  # fundSent:
+  #   handler: events/OnFundSent.run
+  #   timeout: 60
+  #   reservedConcurrency: 1
+  #   events:
+  #     - schedule: rate(1 minute)
 
 plugins:
   - serverless-offline

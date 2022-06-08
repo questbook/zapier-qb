@@ -1,7 +1,7 @@
 import { SupportedChainId } from '../configs/chains'
 
 export default function getDomain(chainId: SupportedChainId) : string {
-	if(chainId === SupportedChainId.HARMONY_TESTNET_S0 || chainId === SupportedChainId.RINKEBY || chainId === SupportedChainId.POLYGON_TESTNET) {
+	if(chainId === SupportedChainId.HARMONY_TESTNET || chainId === SupportedChainId.RINKEBY || chainId === SupportedChainId.POLYGON_MUMBAI) {
 		return 'https://beta.questbook.app'
 	}
 

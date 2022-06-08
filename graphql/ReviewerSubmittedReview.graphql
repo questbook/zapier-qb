@@ -1,4 +1,4 @@
-query ReviewerSubmittedQuery($lowerLimit: Int!, $upperLimit: Int!) {
+query ReviewerSubmittedReview($lowerLimit: Int!, $upperLimit: Int!) {
   reviews(subgraphError: allow, where: { createdAtS_gt: $lowerLimit, createdAtS_lte: $upperLimit }) {
     id
     application {

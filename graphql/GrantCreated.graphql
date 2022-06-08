@@ -18,6 +18,8 @@ query GrantCreated($lowerLimit: Int!, $upperLimit: Int!) {
       asset
       token {
         id
+        label
+        decimal
       }
     }
   }

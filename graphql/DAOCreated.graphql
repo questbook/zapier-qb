@@ -8,11 +8,13 @@ query DAOCreated($lowerLimit: Int!, $upperLimit: Int!) {
     about
     chain: supportedNetworks
     createdAtS
-    members(where: { accessLevel: admin }) {
+    members (where: {accessLevel_not: reviewer}, orderBy: updatedAt, orderDirection: asc) {
       actorId
       addedBy {
         actorId
       }
+      accessLevel
+      updatedAt
     }
   }
 }

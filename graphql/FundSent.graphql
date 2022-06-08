@@ -6,45 +6,29 @@ query FundSent($lowerLimit: Int!, $upperLimit: Int!) {
       type: funds_disbursed
     }
   ) {
-    application {
+    id
+    type
+    milestone {
       id
-      projectName: fields(where: { field_ends_with: "projectName" }) {
-        values {
-          value
-        }
-      }
-      applicantName: fields(where: { field_ends_with: "applicantName" }) {
-        values {
-          value
-        }
-      }
-      applicantEmail: fields(where: { field_ends_with: "applicantEmail" }) {
-        values {
-          value
-        }
-      }
-      grant {
+      title
+      amount
+      amountPaid
+    }
+    grant {
+      id
+      workspace {
         id
-        title
-        workspace {
-          id
-          title
-          members(where: { accessLevel: admin, email_not: null }) {
-            email
-            actorId
-          }
-          tokens {
-            id
-            label
-            address
-            decimal
-          }
-        }
-        reward {
-          asset
+        chain: supportedNetworks
+      }
+      reward {
+        id
+        committed
+        asset
+        token {
+          label
+          decimal
         }
       }
     }
-    amount
   }
 }

@@ -1,6 +1,5 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
-
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -407,6 +406,7 @@ export type Grant = {
   workspace: Workspace;
 };
 
+
 export type GrantApplicationsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<GrantApplication_OrderBy>;
@@ -415,6 +415,7 @@ export type GrantApplicationsArgs = {
   where?: InputMaybe<GrantApplication_Filter>;
 };
 
+
 export type GrantFieldsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<GrantField_OrderBy>;
@@ -422,6 +423,7 @@ export type GrantFieldsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<GrantField_Filter>;
 };
+
 
 export type GrantManagersArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -462,6 +464,7 @@ export type GrantApplication = {
   version: Scalars['Int'];
 };
 
+
 export type GrantApplicationFieldsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<GrantFieldAnswer_OrderBy>;
@@ -469,6 +472,7 @@ export type GrantApplicationFieldsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<GrantFieldAnswer_Filter>;
 };
+
 
 export type GrantApplicationMilestonesArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -478,6 +482,7 @@ export type GrantApplicationMilestonesArgs = {
   where?: InputMaybe<ApplicationMilestone_Filter>;
 };
 
+
 export type GrantApplicationPiiArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<PiiAnswer_OrderBy>;
@@ -486,6 +491,7 @@ export type GrantApplicationPiiArgs = {
   where?: InputMaybe<PiiAnswer_Filter>;
 };
 
+
 export type GrantApplicationReviewersArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<WorkspaceMember_OrderBy>;
@@ -493,6 +499,7 @@ export type GrantApplicationReviewersArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<WorkspaceMember_Filter>;
 };
+
 
 export type GrantApplicationReviewsArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -525,6 +532,7 @@ export type GrantApplicationRevision = {
   version: Scalars['Int'];
 };
 
+
 /** A revision after an update */
 export type GrantApplicationRevisionFieldsArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -533,6 +541,7 @@ export type GrantApplicationRevisionFieldsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<GrantFieldAnswer_Filter>;
 };
+
 
 /** A revision after an update */
 export type GrantApplicationRevisionMilestonesArgs = {
@@ -830,6 +839,7 @@ export type GrantFieldAnswer = {
   id: Scalars['ID'];
   values: Array<GrantFieldAnswerItem>;
 };
+
 
 export type GrantFieldAnswerValuesArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -1616,15 +1626,18 @@ export type Query = {
   workspaces: Array<Workspace>;
 };
 
+
 export type Query_MetaArgs = {
   block?: InputMaybe<Block_Height>;
 };
+
 
 export type QueryApplicationMilestoneArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryApplicationMilestonesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1636,11 +1649,13 @@ export type QueryApplicationMilestonesArgs = {
   where?: InputMaybe<ApplicationMilestone_Filter>;
 };
 
+
 export type QueryFundsTransferArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryFundsTransfersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1652,11 +1667,13 @@ export type QueryFundsTransfersArgs = {
   where?: InputMaybe<FundsTransfer_Filter>;
 };
 
+
 export type QueryGrantArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryGrantApplicationArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1664,11 +1681,13 @@ export type QueryGrantApplicationArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type QueryGrantApplicationRevisionArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryGrantApplicationRevisionsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1680,6 +1699,7 @@ export type QueryGrantApplicationRevisionsArgs = {
   where?: InputMaybe<GrantApplicationRevision_Filter>;
 };
 
+
 export type QueryGrantApplicationsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1690,11 +1710,13 @@ export type QueryGrantApplicationsArgs = {
   where?: InputMaybe<GrantApplication_Filter>;
 };
 
+
 export type QueryGrantFieldArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryGrantFieldAnswerArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1702,11 +1724,13 @@ export type QueryGrantFieldAnswerArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type QueryGrantFieldAnswerItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryGrantFieldAnswerItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1718,6 +1742,7 @@ export type QueryGrantFieldAnswerItemsArgs = {
   where?: InputMaybe<GrantFieldAnswerItem_Filter>;
 };
 
+
 export type QueryGrantFieldAnswersArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1727,6 +1752,7 @@ export type QueryGrantFieldAnswersArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<GrantFieldAnswer_Filter>;
 };
+
 
 export type QueryGrantFieldsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1738,11 +1764,13 @@ export type QueryGrantFieldsArgs = {
   where?: InputMaybe<GrantField_Filter>;
 };
 
+
 export type QueryGrantManagerArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryGrantManagersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1754,6 +1782,7 @@ export type QueryGrantManagersArgs = {
   where?: InputMaybe<GrantManager_Filter>;
 };
 
+
 export type QueryGrantsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1764,11 +1793,13 @@ export type QueryGrantsArgs = {
   where?: InputMaybe<Grant_Filter>;
 };
 
+
 export type QueryNotificationArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryNotificationsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1780,11 +1811,13 @@ export type QueryNotificationsArgs = {
   where?: InputMaybe<Notification_Filter>;
 };
 
+
 export type QueryPiianswerArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryPiianswersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1796,11 +1829,13 @@ export type QueryPiianswersArgs = {
   where?: InputMaybe<PiiAnswer_Filter>;
 };
 
+
 export type QueryReviewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryReviewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1812,11 +1847,13 @@ export type QueryReviewsArgs = {
   where?: InputMaybe<Review_Filter>;
 };
 
+
 export type QueryRewardArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryRewardsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1828,17 +1865,20 @@ export type QueryRewardsArgs = {
   where?: InputMaybe<Reward_Filter>;
 };
 
+
 export type QueryRubricArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type QueryRubricItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryRubricItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1850,6 +1890,7 @@ export type QueryRubricItemsArgs = {
   where?: InputMaybe<RubricItem_Filter>;
 };
 
+
 export type QueryRubricsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1860,11 +1901,13 @@ export type QueryRubricsArgs = {
   where?: InputMaybe<Rubric_Filter>;
 };
 
+
 export type QuerySocialArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QuerySocialsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1876,11 +1919,13 @@ export type QuerySocialsArgs = {
   where?: InputMaybe<Social_Filter>;
 };
 
+
 export type QueryTokenArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryTokensArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1892,17 +1937,20 @@ export type QueryTokensArgs = {
   where?: InputMaybe<Token_Filter>;
 };
 
+
 export type QueryWorkspaceArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type QueryWorkspaceMemberArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type QueryWorkspaceMembersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1913,6 +1961,7 @@ export type QueryWorkspaceMembersArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<WorkspaceMember_Filter>;
 };
+
 
 export type QueryWorkspacesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -1940,6 +1989,7 @@ export type Review = {
   /** ID of the reviewer */
   reviewerId: Scalars['String'];
 };
+
 
 export type ReviewDataArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -2141,6 +2191,7 @@ export type Rubric = {
   /** Unix timestamp of when the rubric was updated */
   updatedAtS: Scalars['Int'];
 };
+
 
 export type RubricItemsArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -2406,15 +2457,18 @@ export type Subscription = {
   workspaces: Array<Workspace>;
 };
 
+
 export type Subscription_MetaArgs = {
   block?: InputMaybe<Block_Height>;
 };
+
 
 export type SubscriptionApplicationMilestoneArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionApplicationMilestonesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2426,11 +2480,13 @@ export type SubscriptionApplicationMilestonesArgs = {
   where?: InputMaybe<ApplicationMilestone_Filter>;
 };
 
+
 export type SubscriptionFundsTransferArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionFundsTransfersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2442,11 +2498,13 @@ export type SubscriptionFundsTransfersArgs = {
   where?: InputMaybe<FundsTransfer_Filter>;
 };
 
+
 export type SubscriptionGrantArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionGrantApplicationArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2454,11 +2512,13 @@ export type SubscriptionGrantApplicationArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type SubscriptionGrantApplicationRevisionArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionGrantApplicationRevisionsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2470,6 +2530,7 @@ export type SubscriptionGrantApplicationRevisionsArgs = {
   where?: InputMaybe<GrantApplicationRevision_Filter>;
 };
 
+
 export type SubscriptionGrantApplicationsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -2480,11 +2541,13 @@ export type SubscriptionGrantApplicationsArgs = {
   where?: InputMaybe<GrantApplication_Filter>;
 };
 
+
 export type SubscriptionGrantFieldArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionGrantFieldAnswerArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2492,11 +2555,13 @@ export type SubscriptionGrantFieldAnswerArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type SubscriptionGrantFieldAnswerItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionGrantFieldAnswerItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2508,6 +2573,7 @@ export type SubscriptionGrantFieldAnswerItemsArgs = {
   where?: InputMaybe<GrantFieldAnswerItem_Filter>;
 };
 
+
 export type SubscriptionGrantFieldAnswersArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -2517,6 +2583,7 @@ export type SubscriptionGrantFieldAnswersArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<GrantFieldAnswer_Filter>;
 };
+
 
 export type SubscriptionGrantFieldsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2528,11 +2595,13 @@ export type SubscriptionGrantFieldsArgs = {
   where?: InputMaybe<GrantField_Filter>;
 };
 
+
 export type SubscriptionGrantManagerArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionGrantManagersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2544,6 +2613,7 @@ export type SubscriptionGrantManagersArgs = {
   where?: InputMaybe<GrantManager_Filter>;
 };
 
+
 export type SubscriptionGrantsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -2554,11 +2624,13 @@ export type SubscriptionGrantsArgs = {
   where?: InputMaybe<Grant_Filter>;
 };
 
+
 export type SubscriptionNotificationArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionNotificationsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2570,11 +2642,13 @@ export type SubscriptionNotificationsArgs = {
   where?: InputMaybe<Notification_Filter>;
 };
 
+
 export type SubscriptionPiianswerArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionPiianswersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2586,11 +2660,13 @@ export type SubscriptionPiianswersArgs = {
   where?: InputMaybe<PiiAnswer_Filter>;
 };
 
+
 export type SubscriptionReviewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionReviewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2602,11 +2678,13 @@ export type SubscriptionReviewsArgs = {
   where?: InputMaybe<Review_Filter>;
 };
 
+
 export type SubscriptionRewardArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionRewardsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2618,17 +2696,20 @@ export type SubscriptionRewardsArgs = {
   where?: InputMaybe<Reward_Filter>;
 };
 
+
 export type SubscriptionRubricArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type SubscriptionRubricItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionRubricItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2640,6 +2721,7 @@ export type SubscriptionRubricItemsArgs = {
   where?: InputMaybe<RubricItem_Filter>;
 };
 
+
 export type SubscriptionRubricsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -2650,11 +2732,13 @@ export type SubscriptionRubricsArgs = {
   where?: InputMaybe<Rubric_Filter>;
 };
 
+
 export type SubscriptionSocialArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionSocialsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2666,11 +2750,13 @@ export type SubscriptionSocialsArgs = {
   where?: InputMaybe<Social_Filter>;
 };
 
+
 export type SubscriptionTokenArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionTokensArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2682,17 +2768,20 @@ export type SubscriptionTokensArgs = {
   where?: InputMaybe<Token_Filter>;
 };
 
+
 export type SubscriptionWorkspaceArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
+
 export type SubscriptionWorkspaceMemberArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
+
 
 export type SubscriptionWorkspaceMembersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2703,6 +2792,7 @@ export type SubscriptionWorkspaceMembersArgs = {
   subgraphError?: _SubgraphErrorPolicy_;
   where?: InputMaybe<WorkspaceMember_Filter>;
 };
+
 
 export type SubscriptionWorkspacesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -2861,6 +2951,7 @@ export type Workspace = {
   updatedAtS: Scalars['Int'];
 };
 
+
 /** Schema for a Workspace or DAO */
 export type WorkspaceMembersArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -2870,6 +2961,7 @@ export type WorkspaceMembersArgs = {
   where?: InputMaybe<WorkspaceMember_Filter>;
 };
 
+
 /** Schema for a Workspace or DAO */
 export type WorkspaceSocialsArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -2878,6 +2970,7 @@ export type WorkspaceSocialsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<Social_Filter>;
 };
+
 
 /** Schema for a Workspace or DAO */
 export type WorkspaceTokensArgs = {
@@ -3266,40 +3359,46 @@ export type ApplicationUpdateQueryVariables = Exact<{
   upperLimit: Scalars['Int'];
 }>;
 
-export type ApplicationUpdateQuery = { __typename?: 'Query', grantApplications: Array<{ __typename?: 'GrantApplication', id: string, state: ApplicationState, version: number, createdAtS: number, createdBy: string, projectName: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', title: string }> }>, grant: { __typename?: 'Grant', id: string, reward: { __typename?: 'Reward', id: string, asset: string, committed: string, token?: { __typename?: 'Token', id: string } | null }, workspace: { __typename?: 'Workspace', chain: Array<SupportedNetwork> } }, milestones: Array<{ __typename?: 'ApplicationMilestone', id: string, title: string, amount: string, amountPaid: string, feedbackDao?: string | null, feedbackDev?: string | null, state: MilestoneState }> }> };
+
+export type ApplicationUpdateQuery = { __typename?: 'Query', grantApplications: Array<{ __typename?: 'GrantApplication', id: string, state: ApplicationState, version: number, updatedAtS: number, feedbackDao?: string | null, grant: { __typename?: 'Grant', id: string, workspace: { __typename?: 'Workspace', id: string, chain: Array<SupportedNetwork> } } }> };
 
 export type DaoCreatedQueryVariables = Exact<{
   lowerLimit: Scalars['Int'];
   upperLimit: Scalars['Int'];
 }>;
 
-export type DaoCreatedQuery = { __typename?: 'Query', workspaces: Array<{ __typename?: 'Workspace', id: string, title: string, about: string, createdAtS: number, chain: Array<SupportedNetwork>, members: Array<{ __typename?: 'WorkspaceMember', actorId: string, addedBy: { __typename?: 'WorkspaceMember', actorId: string } }> }> };
+
+export type DaoCreatedQuery = { __typename?: 'Query', workspaces: Array<{ __typename?: 'Workspace', id: string, title: string, about: string, createdAtS: number, chain: Array<SupportedNetwork>, members: Array<{ __typename?: 'WorkspaceMember', actorId: string, accessLevel: WorkspaceMemberAccessLevel, updatedAt: number, addedBy: { __typename?: 'WorkspaceMember', actorId: string } }> }> };
 
 export type FundSentQueryVariables = Exact<{
   lowerLimit: Scalars['Int'];
   upperLimit: Scalars['Int'];
 }>;
 
-export type FundSentQuery = { __typename?: 'Query', fundsTransfers: Array<{ __typename?: 'FundsTransfer', amount: string, application?: { __typename?: 'GrantApplication', id: string, projectName: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', value: string }> }>, applicantName: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', value: string }> }>, applicantEmail: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', value: string }> }>, grant: { __typename?: 'Grant', id: string, title: string, workspace: { __typename?: 'Workspace', id: string, title: string, members: Array<{ __typename?: 'WorkspaceMember', email?: string | null, actorId: string }>, tokens: Array<{ __typename?: 'Token', id: string, label: string, address: string, decimal: number }> }, reward: { __typename?: 'Reward', asset: string } } } | null }> };
+
+export type FundSentQuery = { __typename?: 'Query', fundsTransfers: Array<{ __typename?: 'FundsTransfer', id: string, type: FundsTransferType, milestone?: { __typename?: 'ApplicationMilestone', id: string, title: string, amount: string, amountPaid: string } | null, grant: { __typename?: 'Grant', id: string, workspace: { __typename?: 'Workspace', id: string, chain: Array<SupportedNetwork> }, reward: { __typename?: 'Reward', id: string, committed: string, asset: string, token?: { __typename?: 'Token', label: string, decimal: number } | null } } }> };
 
 export type GrantAppliedToQueryVariables = Exact<{
   lowerLimit: Scalars['Int'];
   upperLimit: Scalars['Int'];
 }>;
 
-export type GrantAppliedToQuery = { __typename?: 'Query', grantApplications: Array<{ __typename?: 'GrantApplication', id: string, createdAtS: number, createdBy: string, projectName: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', title: string }> }>, grant: { __typename?: 'Grant', id: string, reward: { __typename?: 'Reward', id: string, asset: string, committed: string, token?: { __typename?: 'Token', id: string } | null }, workspace: { __typename?: 'Workspace', chain: Array<SupportedNetwork> } }, milestones: Array<{ __typename?: 'ApplicationMilestone', id: string, title: string, amount: string, amountPaid: string, feedbackDao?: string | null, feedbackDev?: string | null, state: MilestoneState }> }> };
+
+export type GrantAppliedToQuery = { __typename?: 'Query', grantApplications: Array<{ __typename?: 'GrantApplication', id: string, createdAtS: number, createdBy: string, projectName: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', title: string }> }>, applicantEmail: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', email: string }> }>, grant: { __typename?: 'Grant', id: string, reward: { __typename?: 'Reward', id: string, asset: string, committed: string, token?: { __typename?: 'Token', id: string, label: string, decimal: number } | null }, workspace: { __typename?: 'Workspace', id: string, chain: Array<SupportedNetwork> } }, milestones: Array<{ __typename?: 'ApplicationMilestone', id: string, title: string, amount: string, amountPaid: string, state: MilestoneState, feedbackFromDAO?: string | null, feedbackFromDev?: string | null }> }> };
 
 export type GrantCreatedQueryVariables = Exact<{
   lowerLimit: Scalars['Int'];
   upperLimit: Scalars['Int'];
 }>;
 
-export type GrantCreatedQuery = { __typename?: 'Query', grants: Array<{ __typename?: 'Grant', id: string, title: string, summary: string, creatorId: string, createdAtS: number, workspace: { __typename?: 'Workspace', id: string, chain: Array<SupportedNetwork> }, reward: { __typename?: 'Reward', id: string, committed: string, asset: string, token?: { __typename?: 'Token', id: string } | null } }> };
+
+export type GrantCreatedQuery = { __typename?: 'Query', grants: Array<{ __typename?: 'Grant', id: string, title: string, summary: string, creatorId: string, createdAtS: number, workspace: { __typename?: 'Workspace', id: string, chain: Array<SupportedNetwork> }, reward: { __typename?: 'Reward', id: string, committed: string, asset: string, token?: { __typename?: 'Token', id: string, label: string, decimal: number } | null } }> };
 
 export type ReviewerAddedToGrantApplicationQueryVariables = Exact<{
   lowerLimit: Scalars['Int'];
   upperLimit: Scalars['Int'];
 }>;
+
 
 export type ReviewerAddedToGrantApplicationQuery = { __typename?: 'Query', grantApplications: Array<{ __typename?: 'GrantApplication', id: string, state: ApplicationState, version: number, createdAtS: number, createdBy: string, projectName: Array<{ __typename?: 'GrantFieldAnswer', values: Array<{ __typename?: 'GrantFieldAnswerItem', title: string }> }>, grant: { __typename?: 'Grant', id: string, reward: { __typename?: 'Reward', id: string, asset: string, committed: string, token?: { __typename?: 'Token', id: string } | null }, workspace: { __typename?: 'Workspace', chain: Array<SupportedNetwork> } }, milestones: Array<{ __typename?: 'ApplicationMilestone', id: string, title: string, amount: string, amountPaid: string, feedbackDao?: string | null, feedbackDev?: string | null, state: MilestoneState }> }> };
 
@@ -3308,54 +3407,36 @@ export type ReviewerInvitedToDaoQueryVariables = Exact<{
   upperLimit: Scalars['Int'];
 }>;
 
-export type ReviewerInvitedToDaoQuery = { __typename?: 'Query', workspaceMembers: Array<{ __typename?: 'WorkspaceMember', email?: string | null, address: string, workspace: { __typename?: 'Workspace', title: string, chain: Array<SupportedNetwork> } }> };
 
-export type ReviewerSubmittedQueryQueryVariables = Exact<{
+export type ReviewerInvitedToDaoQuery = { __typename?: 'Query', workspaceMembers: Array<{ __typename?: 'WorkspaceMember', email?: string | null, actorId: string, workspace: { __typename?: 'Workspace', id: string, title: string, chain: Array<SupportedNetwork> } }> };
+
+export type ReviewerSubmittedReviewQueryVariables = Exact<{
   lowerLimit: Scalars['Int'];
   upperLimit: Scalars['Int'];
 }>;
 
-export type ReviewerSubmittedQueryQuery = { __typename?: 'Query', reviews: Array<{ __typename?: 'Review', id: string, reviewerId: string, publicReviewDataHash?: string | null, application: { __typename?: 'GrantApplication', id: string }, reviewer?: { __typename?: 'WorkspaceMember', actorId: string, workspace: { __typename?: 'Workspace', id: string, chain: Array<SupportedNetwork> } } | null }> };
+
+export type ReviewerSubmittedReviewQuery = { __typename?: 'Query', reviews: Array<{ __typename?: 'Review', id: string, reviewerId: string, publicReviewDataHash?: string | null, application: { __typename?: 'GrantApplication', id: string }, reviewer?: { __typename?: 'WorkspaceMember', actorId: string, workspace: { __typename?: 'Workspace', id: string, chain: Array<SupportedNetwork> } } | null }> };
+
 
 export const ApplicationUpdateDocument = gql`
     query ApplicationUpdate($lowerLimit: Int!, $upperLimit: Int!) {
   grantApplications(
     subgraphError: allow
-    where: {updatedAtS_gt: $lowerLimit, updatedAtS_lte: $upperLimit, version_gt: 1, reviewers: []}
+    where: {updatedAtS_gt: $lowerLimit, updatedAtS_lte: $upperLimit, version_gt: 1, state_not_in: [submitted]}
   ) {
     id
-    state
-    version
-    projectName: fields(where: {field_ends_with: "projectName"}) {
-      values {
-        title: value
-      }
-    }
-    createdBy: applicantId
-    createdAtS
     grant {
       id
-      reward {
-        id
-        asset
-        committed
-        token {
-          id
-        }
-      }
       workspace {
+        id
         chain: supportedNetworks
       }
     }
-    milestones {
-      id
-      title
-      amount
-      amountPaid
-      feedbackDao
-      feedbackDev
-      state
-    }
+    state
+    version
+    updatedAtS
+    feedbackDao
   }
 }
     `;
@@ -3378,13 +3459,13 @@ export const ApplicationUpdateDocument = gql`
  * });
  */
 export function useApplicationUpdateQuery(baseOptions: Apollo.QueryHookOptions<ApplicationUpdateQuery, ApplicationUpdateQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ApplicationUpdateQuery, ApplicationUpdateQueryVariables>(ApplicationUpdateDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ApplicationUpdateQuery, ApplicationUpdateQueryVariables>(ApplicationUpdateDocument, options);
+      }
 export function useApplicationUpdateLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ApplicationUpdateQuery, ApplicationUpdateQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ApplicationUpdateQuery, ApplicationUpdateQueryVariables>(ApplicationUpdateDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ApplicationUpdateQuery, ApplicationUpdateQueryVariables>(ApplicationUpdateDocument, options);
+        }
 export type ApplicationUpdateQueryHookResult = ReturnType<typeof useApplicationUpdateQuery>;
 export type ApplicationUpdateLazyQueryHookResult = ReturnType<typeof useApplicationUpdateLazyQuery>;
 export type ApplicationUpdateQueryResult = Apollo.QueryResult<ApplicationUpdateQuery, ApplicationUpdateQueryVariables>;
@@ -3399,11 +3480,17 @@ export const DaoCreatedDocument = gql`
     about
     chain: supportedNetworks
     createdAtS
-    members(where: {accessLevel: admin}) {
+    members(
+      where: {accessLevel_not: reviewer}
+      orderBy: updatedAt
+      orderDirection: asc
+    ) {
       actorId
       addedBy {
         actorId
       }
+      accessLevel
+      updatedAt
     }
   }
 }
@@ -3427,13 +3514,13 @@ export const DaoCreatedDocument = gql`
  * });
  */
 export function useDaoCreatedQuery(baseOptions: Apollo.QueryHookOptions<DaoCreatedQuery, DaoCreatedQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<DaoCreatedQuery, DaoCreatedQueryVariables>(DaoCreatedDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<DaoCreatedQuery, DaoCreatedQueryVariables>(DaoCreatedDocument, options);
+      }
 export function useDaoCreatedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DaoCreatedQuery, DaoCreatedQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<DaoCreatedQuery, DaoCreatedQueryVariables>(DaoCreatedDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<DaoCreatedQuery, DaoCreatedQueryVariables>(DaoCreatedDocument, options);
+        }
 export type DaoCreatedQueryHookResult = ReturnType<typeof useDaoCreatedQuery>;
 export type DaoCreatedLazyQueryHookResult = ReturnType<typeof useDaoCreatedLazyQuery>;
 export type DaoCreatedQueryResult = Apollo.QueryResult<DaoCreatedQuery, DaoCreatedQueryVariables>;
@@ -3442,46 +3529,30 @@ export const FundSentDocument = gql`
   fundsTransfers(
     where: {createdAtS_gt: $lowerLimit, createdAtS_lte: $upperLimit, type: funds_disbursed}
   ) {
-    application {
+    id
+    type
+    milestone {
       id
-      projectName: fields(where: {field_ends_with: "projectName"}) {
-        values {
-          value
-        }
-      }
-      applicantName: fields(where: {field_ends_with: "applicantName"}) {
-        values {
-          value
-        }
-      }
-      applicantEmail: fields(where: {field_ends_with: "applicantEmail"}) {
-        values {
-          value
-        }
-      }
-      grant {
+      title
+      amount
+      amountPaid
+    }
+    grant {
+      id
+      workspace {
         id
-        title
-        workspace {
-          id
-          title
-          members(where: {accessLevel: admin, email_not: null}) {
-            email
-            actorId
-          }
-          tokens {
-            id
-            label
-            address
-            decimal
-          }
-        }
-        reward {
-          asset
+        chain: supportedNetworks
+      }
+      reward {
+        id
+        committed
+        asset
+        token {
+          label
+          decimal
         }
       }
     }
-    amount
   }
 }
     `;
@@ -3504,13 +3575,13 @@ export const FundSentDocument = gql`
  * });
  */
 export function useFundSentQuery(baseOptions: Apollo.QueryHookOptions<FundSentQuery, FundSentQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<FundSentQuery, FundSentQueryVariables>(FundSentDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<FundSentQuery, FundSentQueryVariables>(FundSentDocument, options);
+      }
 export function useFundSentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FundSentQuery, FundSentQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<FundSentQuery, FundSentQueryVariables>(FundSentDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<FundSentQuery, FundSentQueryVariables>(FundSentDocument, options);
+        }
 export type FundSentQueryHookResult = ReturnType<typeof useFundSentQuery>;
 export type FundSentLazyQueryHookResult = ReturnType<typeof useFundSentLazyQuery>;
 export type FundSentQueryResult = Apollo.QueryResult<FundSentQuery, FundSentQueryVariables>;
@@ -3526,6 +3597,11 @@ export const GrantAppliedToDocument = gql`
         title: value
       }
     }
+    applicantEmail: fields(where: {field_ends_with: "applicantEmail"}) {
+      values {
+        email: value
+      }
+    }
     createdBy: applicantId
     createdAtS
     grant {
@@ -3536,9 +3612,12 @@ export const GrantAppliedToDocument = gql`
         committed
         token {
           id
+          label
+          decimal
         }
       }
       workspace {
+        id
         chain: supportedNetworks
       }
     }
@@ -3547,8 +3626,8 @@ export const GrantAppliedToDocument = gql`
       title
       amount
       amountPaid
-      feedbackDao
-      feedbackDev
+      feedbackFromDAO: feedbackDao
+      feedbackFromDev: feedbackDev
       state
     }
   }
@@ -3573,13 +3652,13 @@ export const GrantAppliedToDocument = gql`
  * });
  */
 export function useGrantAppliedToQuery(baseOptions: Apollo.QueryHookOptions<GrantAppliedToQuery, GrantAppliedToQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GrantAppliedToQuery, GrantAppliedToQueryVariables>(GrantAppliedToDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GrantAppliedToQuery, GrantAppliedToQueryVariables>(GrantAppliedToDocument, options);
+      }
 export function useGrantAppliedToLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GrantAppliedToQuery, GrantAppliedToQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GrantAppliedToQuery, GrantAppliedToQueryVariables>(GrantAppliedToDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GrantAppliedToQuery, GrantAppliedToQueryVariables>(GrantAppliedToDocument, options);
+        }
 export type GrantAppliedToQueryHookResult = ReturnType<typeof useGrantAppliedToQuery>;
 export type GrantAppliedToLazyQueryHookResult = ReturnType<typeof useGrantAppliedToLazyQuery>;
 export type GrantAppliedToQueryResult = Apollo.QueryResult<GrantAppliedToQuery, GrantAppliedToQueryVariables>;
@@ -3604,6 +3683,8 @@ export const GrantCreatedDocument = gql`
       asset
       token {
         id
+        label
+        decimal
       }
     }
   }
@@ -3628,13 +3709,13 @@ export const GrantCreatedDocument = gql`
  * });
  */
 export function useGrantCreatedQuery(baseOptions: Apollo.QueryHookOptions<GrantCreatedQuery, GrantCreatedQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GrantCreatedQuery, GrantCreatedQueryVariables>(GrantCreatedDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GrantCreatedQuery, GrantCreatedQueryVariables>(GrantCreatedDocument, options);
+      }
 export function useGrantCreatedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GrantCreatedQuery, GrantCreatedQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GrantCreatedQuery, GrantCreatedQueryVariables>(GrantCreatedDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GrantCreatedQuery, GrantCreatedQueryVariables>(GrantCreatedDocument, options);
+        }
 export type GrantCreatedQueryHookResult = ReturnType<typeof useGrantCreatedQuery>;
 export type GrantCreatedLazyQueryHookResult = ReturnType<typeof useGrantCreatedLazyQuery>;
 export type GrantCreatedQueryResult = Apollo.QueryResult<GrantCreatedQuery, GrantCreatedQueryVariables>;
@@ -3699,13 +3780,13 @@ export const ReviewerAddedToGrantApplicationDocument = gql`
  * });
  */
 export function useReviewerAddedToGrantApplicationQuery(baseOptions: Apollo.QueryHookOptions<ReviewerAddedToGrantApplicationQuery, ReviewerAddedToGrantApplicationQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ReviewerAddedToGrantApplicationQuery, ReviewerAddedToGrantApplicationQueryVariables>(ReviewerAddedToGrantApplicationDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ReviewerAddedToGrantApplicationQuery, ReviewerAddedToGrantApplicationQueryVariables>(ReviewerAddedToGrantApplicationDocument, options);
+      }
 export function useReviewerAddedToGrantApplicationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ReviewerAddedToGrantApplicationQuery, ReviewerAddedToGrantApplicationQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ReviewerAddedToGrantApplicationQuery, ReviewerAddedToGrantApplicationQueryVariables>(ReviewerAddedToGrantApplicationDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ReviewerAddedToGrantApplicationQuery, ReviewerAddedToGrantApplicationQueryVariables>(ReviewerAddedToGrantApplicationDocument, options);
+        }
 export type ReviewerAddedToGrantApplicationQueryHookResult = ReturnType<typeof useReviewerAddedToGrantApplicationQuery>;
 export type ReviewerAddedToGrantApplicationLazyQueryHookResult = ReturnType<typeof useReviewerAddedToGrantApplicationLazyQuery>;
 export type ReviewerAddedToGrantApplicationQueryResult = Apollo.QueryResult<ReviewerAddedToGrantApplicationQuery, ReviewerAddedToGrantApplicationQueryVariables>;
@@ -3717,10 +3798,11 @@ export const ReviewerInvitedToDaoDocument = gql`
   ) {
     email
     workspace {
+      id
       title
       chain: supportedNetworks
     }
-    address: actorId
+    actorId
   }
 }
     `;
@@ -3743,18 +3825,18 @@ export const ReviewerInvitedToDaoDocument = gql`
  * });
  */
 export function useReviewerInvitedToDaoQuery(baseOptions: Apollo.QueryHookOptions<ReviewerInvitedToDaoQuery, ReviewerInvitedToDaoQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ReviewerInvitedToDaoQuery, ReviewerInvitedToDaoQueryVariables>(ReviewerInvitedToDaoDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ReviewerInvitedToDaoQuery, ReviewerInvitedToDaoQueryVariables>(ReviewerInvitedToDaoDocument, options);
+      }
 export function useReviewerInvitedToDaoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ReviewerInvitedToDaoQuery, ReviewerInvitedToDaoQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ReviewerInvitedToDaoQuery, ReviewerInvitedToDaoQueryVariables>(ReviewerInvitedToDaoDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ReviewerInvitedToDaoQuery, ReviewerInvitedToDaoQueryVariables>(ReviewerInvitedToDaoDocument, options);
+        }
 export type ReviewerInvitedToDaoQueryHookResult = ReturnType<typeof useReviewerInvitedToDaoQuery>;
 export type ReviewerInvitedToDaoLazyQueryHookResult = ReturnType<typeof useReviewerInvitedToDaoLazyQuery>;
 export type ReviewerInvitedToDaoQueryResult = Apollo.QueryResult<ReviewerInvitedToDaoQuery, ReviewerInvitedToDaoQueryVariables>;
-export const ReviewerSubmittedQueryDocument = gql`
-    query ReviewerSubmittedQuery($lowerLimit: Int!, $upperLimit: Int!) {
+export const ReviewerSubmittedReviewDocument = gql`
+    query ReviewerSubmittedReview($lowerLimit: Int!, $upperLimit: Int!) {
   reviews(
     subgraphError: allow
     where: {createdAtS_gt: $lowerLimit, createdAtS_lte: $upperLimit}
@@ -3777,30 +3859,30 @@ export const ReviewerSubmittedQueryDocument = gql`
     `;
 
 /**
- * __useReviewerSubmittedQueryQuery__
+ * __useReviewerSubmittedReviewQuery__
  *
- * To run a query within a React component, call `useReviewerSubmittedQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useReviewerSubmittedQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useReviewerSubmittedReviewQuery` and pass it any options that fit your needs.
+ * When your component renders, `useReviewerSubmittedReviewQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useReviewerSubmittedQueryQuery({
+ * const { data, loading, error } = useReviewerSubmittedReviewQuery({
  *   variables: {
  *      lowerLimit: // value for 'lowerLimit'
  *      upperLimit: // value for 'upperLimit'
  *   },
  * });
  */
-export function useReviewerSubmittedQueryQuery(baseOptions: Apollo.QueryHookOptions<ReviewerSubmittedQueryQuery, ReviewerSubmittedQueryQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<ReviewerSubmittedQueryQuery, ReviewerSubmittedQueryQueryVariables>(ReviewerSubmittedQueryDocument, options);
-}
-export function useReviewerSubmittedQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ReviewerSubmittedQueryQuery, ReviewerSubmittedQueryQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<ReviewerSubmittedQueryQuery, ReviewerSubmittedQueryQueryVariables>(ReviewerSubmittedQueryDocument, options);
-}
-export type ReviewerSubmittedQueryQueryHookResult = ReturnType<typeof useReviewerSubmittedQueryQuery>;
-export type ReviewerSubmittedQueryLazyQueryHookResult = ReturnType<typeof useReviewerSubmittedQueryLazyQuery>;
-export type ReviewerSubmittedQueryQueryResult = Apollo.QueryResult<ReviewerSubmittedQueryQuery, ReviewerSubmittedQueryQueryVariables>;
+export function useReviewerSubmittedReviewQuery(baseOptions: Apollo.QueryHookOptions<ReviewerSubmittedReviewQuery, ReviewerSubmittedReviewQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<ReviewerSubmittedReviewQuery, ReviewerSubmittedReviewQueryVariables>(ReviewerSubmittedReviewDocument, options);
+      }
+export function useReviewerSubmittedReviewLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ReviewerSubmittedReviewQuery, ReviewerSubmittedReviewQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<ReviewerSubmittedReviewQuery, ReviewerSubmittedReviewQueryVariables>(ReviewerSubmittedReviewDocument, options);
+        }
+export type ReviewerSubmittedReviewQueryHookResult = ReturnType<typeof useReviewerSubmittedReviewQuery>;
+export type ReviewerSubmittedReviewLazyQueryHookResult = ReturnType<typeof useReviewerSubmittedReviewLazyQuery>;
+export type ReviewerSubmittedReviewQueryResult = Apollo.QueryResult<ReviewerSubmittedReviewQuery, ReviewerSubmittedReviewQueryVariables>;

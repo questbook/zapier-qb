@@ -23,8 +23,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReviewerSubmittedQueryDocument = exports.useReviewerInvitedToDaoLazyQuery = exports.useReviewerInvitedToDaoQuery = exports.ReviewerInvitedToDaoDocument = exports.useReviewerAddedToGrantApplicationLazyQuery = exports.useReviewerAddedToGrantApplicationQuery = exports.ReviewerAddedToGrantApplicationDocument = exports.useGrantCreatedLazyQuery = exports.useGrantCreatedQuery = exports.GrantCreatedDocument = exports.useGrantAppliedToLazyQuery = exports.useGrantAppliedToQuery = exports.GrantAppliedToDocument = exports.useFundSentLazyQuery = exports.useFundSentQuery = exports.FundSentDocument = exports.useDaoCreatedLazyQuery = exports.useDaoCreatedQuery = exports.DaoCreatedDocument = exports.useApplicationUpdateLazyQuery = exports.useApplicationUpdateQuery = exports.ApplicationUpdateDocument = exports._SubgraphErrorPolicy_ = exports.Workspace_OrderBy = exports.WorkspaceMember_OrderBy = exports.WorkspaceMemberAccessLevel = exports.Token_OrderBy = exports.SupportedNetwork = exports.Social_OrderBy = exports.Rubric_OrderBy = exports.RubricItem_OrderBy = exports.Reward_OrderBy = exports.Review_OrderBy = exports.PiiAnswer_OrderBy = exports.OrderDirection = exports.Notification_OrderBy = exports.NotificationType = exports.MilestoneState = exports.Grant_OrderBy = exports.GrantManager_OrderBy = exports.GrantField_OrderBy = exports.GrantFieldInputType = exports.GrantFieldAnswer_OrderBy = exports.GrantFieldAnswerItem_OrderBy = exports.GrantApplication_OrderBy = exports.GrantApplicationRevision_OrderBy = exports.FundsTransfer_OrderBy = exports.FundsTransferType = exports.ApplicationState = exports.ApplicationMilestone_OrderBy = void 0;
-exports.useReviewerSubmittedQueryLazyQuery = exports.useReviewerSubmittedQueryQuery = void 0;
+exports.ReviewerSubmittedReviewDocument = exports.useReviewerInvitedToDaoLazyQuery = exports.useReviewerInvitedToDaoQuery = exports.ReviewerInvitedToDaoDocument = exports.useReviewerAddedToGrantApplicationLazyQuery = exports.useReviewerAddedToGrantApplicationQuery = exports.ReviewerAddedToGrantApplicationDocument = exports.useGrantCreatedLazyQuery = exports.useGrantCreatedQuery = exports.GrantCreatedDocument = exports.useGrantAppliedToLazyQuery = exports.useGrantAppliedToQuery = exports.GrantAppliedToDocument = exports.useFundSentLazyQuery = exports.useFundSentQuery = exports.FundSentDocument = exports.useDaoCreatedLazyQuery = exports.useDaoCreatedQuery = exports.DaoCreatedDocument = exports.useApplicationUpdateLazyQuery = exports.useApplicationUpdateQuery = exports.ApplicationUpdateDocument = exports._SubgraphErrorPolicy_ = exports.Workspace_OrderBy = exports.WorkspaceMember_OrderBy = exports.WorkspaceMemberAccessLevel = exports.Token_OrderBy = exports.SupportedNetwork = exports.Social_OrderBy = exports.Rubric_OrderBy = exports.RubricItem_OrderBy = exports.Reward_OrderBy = exports.Review_OrderBy = exports.PiiAnswer_OrderBy = exports.OrderDirection = exports.Notification_OrderBy = exports.NotificationType = exports.MilestoneState = exports.Grant_OrderBy = exports.GrantManager_OrderBy = exports.GrantField_OrderBy = exports.GrantFieldInputType = exports.GrantFieldAnswer_OrderBy = exports.GrantFieldAnswerItem_OrderBy = exports.GrantApplication_OrderBy = exports.GrantApplicationRevision_OrderBy = exports.FundsTransfer_OrderBy = exports.FundsTransferType = exports.ApplicationState = exports.ApplicationMilestone_OrderBy = void 0;
+exports.useReviewerSubmittedReviewLazyQuery = exports.useReviewerSubmittedReviewQuery = void 0;
 const client_1 = require("@apollo/client");
 const Apollo = __importStar(require("@apollo/client"));
 const defaultOptions = {};
@@ -305,41 +305,20 @@ exports.ApplicationUpdateDocument = (0, client_1.gql) `
     query ApplicationUpdate($lowerLimit: Int!, $upperLimit: Int!) {
   grantApplications(
     subgraphError: allow
-    where: {updatedAtS_gt: $lowerLimit, updatedAtS_lte: $upperLimit, version_gt: 1, reviewers: []}
+    where: {updatedAtS_gt: $lowerLimit, updatedAtS_lte: $upperLimit, version_gt: 1, state_not_in: [submitted]}
   ) {
     id
-    state
-    version
-    projectName: fields(where: {field_ends_with: "projectName"}) {
-      values {
-        title: value
-      }
-    }
-    createdBy: applicantId
-    createdAtS
     grant {
       id
-      reward {
-        id
-        asset
-        committed
-        token {
-          id
-        }
-      }
       workspace {
+        id
         chain: supportedNetworks
       }
     }
-    milestones {
-      id
-      title
-      amount
-      amountPaid
-      feedbackDao
-      feedbackDev
-      state
-    }
+    state
+    version
+    updatedAtS
+    feedbackDao
   }
 }
     `;
@@ -381,11 +360,17 @@ exports.DaoCreatedDocument = (0, client_1.gql) `
     about
     chain: supportedNetworks
     createdAtS
-    members(where: {accessLevel: admin}) {
+    members(
+      where: {accessLevel_not: reviewer}
+      orderBy: updatedAt
+      orderDirection: asc
+    ) {
       actorId
       addedBy {
         actorId
       }
+      accessLevel
+      updatedAt
     }
   }
 }
@@ -422,46 +407,30 @@ exports.FundSentDocument = (0, client_1.gql) `
   fundsTransfers(
     where: {createdAtS_gt: $lowerLimit, createdAtS_lte: $upperLimit, type: funds_disbursed}
   ) {
-    application {
+    id
+    type
+    milestone {
       id
-      projectName: fields(where: {field_ends_with: "projectName"}) {
-        values {
-          value
-        }
-      }
-      applicantName: fields(where: {field_ends_with: "applicantName"}) {
-        values {
-          value
-        }
-      }
-      applicantEmail: fields(where: {field_ends_with: "applicantEmail"}) {
-        values {
-          value
-        }
-      }
-      grant {
+      title
+      amount
+      amountPaid
+    }
+    grant {
+      id
+      workspace {
         id
-        title
-        workspace {
-          id
-          title
-          members(where: {accessLevel: admin, email_not: null}) {
-            email
-            actorId
-          }
-          tokens {
-            id
-            label
-            address
-            decimal
-          }
-        }
-        reward {
-          asset
+        chain: supportedNetworks
+      }
+      reward {
+        id
+        committed
+        asset
+        token {
+          label
+          decimal
         }
       }
     }
-    amount
   }
 }
     `;
@@ -504,6 +473,11 @@ exports.GrantAppliedToDocument = (0, client_1.gql) `
         title: value
       }
     }
+    applicantEmail: fields(where: {field_ends_with: "applicantEmail"}) {
+      values {
+        email: value
+      }
+    }
     createdBy: applicantId
     createdAtS
     grant {
@@ -514,9 +488,12 @@ exports.GrantAppliedToDocument = (0, client_1.gql) `
         committed
         token {
           id
+          label
+          decimal
         }
       }
       workspace {
+        id
         chain: supportedNetworks
       }
     }
@@ -525,8 +502,8 @@ exports.GrantAppliedToDocument = (0, client_1.gql) `
       title
       amount
       amountPaid
-      feedbackDao
-      feedbackDev
+      feedbackFromDAO: feedbackDao
+      feedbackFromDev: feedbackDev
       state
     }
   }
@@ -580,6 +557,8 @@ exports.GrantCreatedDocument = (0, client_1.gql) `
       asset
       token {
         id
+        label
+        decimal
       }
     }
   }
@@ -689,10 +668,11 @@ exports.ReviewerInvitedToDaoDocument = (0, client_1.gql) `
   ) {
     email
     workspace {
+      id
       title
       chain: supportedNetworks
     }
-    address: actorId
+    actorId
   }
 }
     `;
@@ -723,8 +703,8 @@ function useReviewerInvitedToDaoLazyQuery(baseOptions) {
     return Apollo.useLazyQuery(exports.ReviewerInvitedToDaoDocument, options);
 }
 exports.useReviewerInvitedToDaoLazyQuery = useReviewerInvitedToDaoLazyQuery;
-exports.ReviewerSubmittedQueryDocument = (0, client_1.gql) `
-    query ReviewerSubmittedQuery($lowerLimit: Int!, $upperLimit: Int!) {
+exports.ReviewerSubmittedReviewDocument = (0, client_1.gql) `
+    query ReviewerSubmittedReview($lowerLimit: Int!, $upperLimit: Int!) {
   reviews(
     subgraphError: allow
     where: {createdAtS_gt: $lowerLimit, createdAtS_lte: $upperLimit}
@@ -746,29 +726,29 @@ exports.ReviewerSubmittedQueryDocument = (0, client_1.gql) `
 }
     `;
 /**
- * __useReviewerSubmittedQueryQuery__
+ * __useReviewerSubmittedReviewQuery__
  *
- * To run a query within a React component, call `useReviewerSubmittedQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useReviewerSubmittedQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useReviewerSubmittedReviewQuery` and pass it any options that fit your needs.
+ * When your component renders, `useReviewerSubmittedReviewQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useReviewerSubmittedQueryQuery({
+ * const { data, loading, error } = useReviewerSubmittedReviewQuery({
  *   variables: {
  *      lowerLimit: // value for 'lowerLimit'
  *      upperLimit: // value for 'upperLimit'
  *   },
  * });
  */
-function useReviewerSubmittedQueryQuery(baseOptions) {
+function useReviewerSubmittedReviewQuery(baseOptions) {
     const options = { ...defaultOptions, ...baseOptions };
-    return Apollo.useQuery(exports.ReviewerSubmittedQueryDocument, options);
+    return Apollo.useQuery(exports.ReviewerSubmittedReviewDocument, options);
 }
-exports.useReviewerSubmittedQueryQuery = useReviewerSubmittedQueryQuery;
-function useReviewerSubmittedQueryLazyQuery(baseOptions) {
+exports.useReviewerSubmittedReviewQuery = useReviewerSubmittedReviewQuery;
+function useReviewerSubmittedReviewLazyQuery(baseOptions) {
     const options = { ...defaultOptions, ...baseOptions };
-    return Apollo.useLazyQuery(exports.ReviewerSubmittedQueryDocument, options);
+    return Apollo.useLazyQuery(exports.ReviewerSubmittedReviewDocument, options);
 }
-exports.useReviewerSubmittedQueryLazyQuery = useReviewerSubmittedQueryLazyQuery;
+exports.useReviewerSubmittedReviewLazyQuery = useReviewerSubmittedReviewLazyQuery;

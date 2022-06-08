@@ -1,12 +1,21 @@
 query GrantAppliedTo($lowerLimit: Int!, $upperLimit: Int!) {
   grantApplications(
     subgraphError: allow
-    where: { updatedAtS_gt: $lowerLimit, updatedAtS_lte: $upperLimit, version: 1 }
+    where: {
+      updatedAtS_gt: $lowerLimit
+      updatedAtS_lte: $upperLimit
+      version: 1
+    }
   ) {
     id
     projectName: fields(where: { field_ends_with: "projectName" }) {
       values {
         title: value
+      }
+    }
+    applicantEmail: fields(where: { field_ends_with: "applicantEmail" }) {
+      values {
+        email: value
       }
     }
     createdBy: applicantId
@@ -19,9 +28,12 @@ query GrantAppliedTo($lowerLimit: Int!, $upperLimit: Int!) {
         committed
         token {
           id
+          label
+          decimal
         }
       }
       workspace {
+        id
         chain: supportedNetworks
       }
     }
@@ -30,8 +42,8 @@ query GrantAppliedTo($lowerLimit: Int!, $upperLimit: Int!) {
       title
       amount
       amountPaid
-      feedbackDao
-      feedbackDev
+      feedbackFromDAO: feedbackDao
+      feedbackFromDev: feedbackDev
       state
     }
   }
